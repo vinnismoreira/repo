@@ -1,24 +1,25 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import routes from './routes.js'
+import './app-shell.css'
 
 export default function App() {
   return (
     <BrowserRouter>
-      <div style={{display: 'flex', minHeight: '100vh'}}>
-        <aside style={{width: 260, borderRight: '1px solid #eee', padding: 16}}>
-          <h2 style={{marginTop: 0}}>Páginas</h2>
+      <div className="app-shell">
+        <aside className="sidebar">
+          <h2>Páginas</h2>
           <nav>
-            <ul style={{listStyle:'none', padding:0, margin:0}}>
+            <ul className="nav-list">
               {routes.map(r => (
-                <li key={r.path} style={{marginBottom: 8}}>
+                <li key={r.path}>
                   <Link to={r.path}>{r.label}</Link>
                 </li>
               ))}
             </ul>
           </nav>
         </aside>
-        <main style={{flex: 1, padding: 16}}>
+        <main className="main">
           <Routes>
             {routes.map(r => <Route key={r.path} path={r.path} element={<r.Component />} />)}
             <Route path="*" element={<div>Selecione uma página no menu.</div>} />

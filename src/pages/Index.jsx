@@ -3,8 +3,7 @@ import React, { useEffect, useRef } from 'react'
 export default function Index() {
   const containerRef = useRef(null)
   useEffect(() => {
-    // Se scripts do site original dependerem do DOM, você pode inicializá-los aqui.
-    // Scripts originais foram copiados para /public/static/js (adicione-os em index.html se necessário).
+    // Inicializações JS específicas da página podem ir aqui.
   }, [])
 
   return (

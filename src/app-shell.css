@@ -1,0 +1,64 @@
+
+/* Scoped layout para evitar conflitos com CSS legado */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Força aside como coluna fixa e evita interferência de CSS global */
+.app-shell aside.sidebar {
+  display: block !important;
+  float: none !important;
+  width: 260px;
+  flex: 0 0 260px;
+  border-right: 1px solid #eaeaea;
+  padding: 16px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100dvh;
+  overflow: auto;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.app-shell .main {
+  flex: 1 1 auto;
+  padding: 16px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Navegação */
+.app-shell .nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.app-shell .nav-list li {
+  margin-bottom: 8px;
+}
+.app-shell .nav-list a {
+  text-decoration: none;
+}
+
+/* Cabeçalho da sidebar */
+.app-shell .sidebar h2 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+}
+
+/* Responsivo: sidebar vira topo */
+@media (max-width: 900px) {
+  .app-shell {
+    flex-direction: column;
+  }
+  .app-shell aside.sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #eaeaea;
+  }
+}
